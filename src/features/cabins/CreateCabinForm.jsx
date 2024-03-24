@@ -11,9 +11,8 @@ import useCreateCabin from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
 
 function CreateCabinForm({ cabinToEdit = {} }) {
-  const { isCreating, createCabin } = useCreateCabin;
-  const { isEditing, editCabin } = useEditCabin;
-
+  const { isCreating, createCabin } = useCreateCabin();
+  const { isEditing, editCabin } = useEditCabin();
   const isWorking = isCreating || isEditing;
 
   const { id: editId, ...editValues } = cabinToEdit;
@@ -36,11 +35,19 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           },
         }
       );
-    else createCabin({ ...data, image: data.image[0] });
-    //console.log(data);
+    else
+      createCabin(
+        { ...data, image: image },
+        {
+          onSuccess: (data) => {
+            reset();
+          },
+        }
+      );
   }
+
   function onError(errors) {
-    console.log(errors);
+    // console.log(errors);
   }
 
   return (
@@ -55,6 +62,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           })}
         />
       </FormRow>
+
       <FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
         <Input
           type="number"
@@ -124,6 +132,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           })}
         />
       </FormRow>
+
       <FormRow>
         {/* type is an HTML attribute! */}
         <Button variation="secondary" type="reset">
