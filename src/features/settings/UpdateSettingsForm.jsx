@@ -17,13 +17,13 @@ function UpdateSettingsForm() {
   if (isLoading) return <Spinner />;
   return (
     <Form>
-      <FormRow label="Minimum nights/booking">
+      <FormRow label="Minimum nights/Booking">
         <Input type="number" id="min-nights" defaultValue={minBookingLength} />
       </FormRow>
-      <FormRow label="Maximum nights/booking">
+      <FormRow label="Maximum nights/Booking">
         <Input type="number" id="max-nights" defaultValue={maxBookingLength} />
       </FormRow>
-      <FormRow label="Maximum guests/booking">
+      <FormRow label="Maximum guests/Booking">
         <Input
           type="number"
           id="max-guests"
