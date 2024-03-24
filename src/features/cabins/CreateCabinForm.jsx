@@ -66,7 +66,7 @@ function CreateCabinForm() {
 
   function onSubmit(data) {
     mutate({ ...data, image: data.image[0] });
-    console.log(data);
+    //console.log(data);
   }
 
   function onError(errors) {
