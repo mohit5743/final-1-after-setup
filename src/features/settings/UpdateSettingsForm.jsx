@@ -11,7 +11,7 @@ function UpdateSettingsForm() {
       maxBookingLength,
       maxGuestsPerBooking,
       breakfastPrice,
-    },
+    } = {},
   } = useSettings();
   return (
     <Form>
