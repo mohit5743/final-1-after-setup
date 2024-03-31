@@ -1,5 +1,3 @@
-// Search for: 'jo', 'fa', 'mar', 'emm', 'ah'
-
 export const guests = [
   {
     // id: 1000,
