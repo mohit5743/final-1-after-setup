@@ -16,7 +16,7 @@ import Checkin from "./pages/Checkin";
 import Users from "./pages/Users";
 
 import AppLayout from "./ui/AppLayout";
-//import ProtectedRoute from "./ui/ProtectedRoute";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 import { DarkModeProvider } from "./context/DarkModeContext";
 
@@ -40,9 +40,9 @@ function App() {
           <Routes>
             <Route
               element={
-                
+                <ProtectedRoute>
                   <AppLayout />
-              
+                </ProtectedRoute>
               }
             >
               <Route index element={<Navigate replace to="dashboard" />} />
